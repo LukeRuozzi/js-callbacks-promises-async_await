@@ -1,3 +1,5 @@
+// callbacks
+
 const random = (callback) => {
   const num = Math.floor(Math.random() * 10);
   callback(num);
@@ -22,6 +24,8 @@ random((num) => {
   });
 });
 
+// Promises
+
 const randomP = new Promise((res, rej) => {
   const num = Math.floor(Math.random() * 10);
   res(num);
@@ -41,13 +45,13 @@ const divideP = (num) => {
   });
 };
 
-// Promise
 randomP
   .then((num) => squareP(num))
   .then((num) => divideP(num))
   .then((num) => console.log('promise: ', num));
 
 // Promise async/await
+
 const getNum = async () => {
   let num = await randomP;
   num = await squareP(num);
